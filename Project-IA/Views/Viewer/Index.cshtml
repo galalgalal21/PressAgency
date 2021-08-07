@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Project_IA.Models.PostCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ViewerLayout.cshtml";
+}
+
+<div class="container">
+
+
+
+
+    @foreach (var item in Model)
+    {
+    <div class="panel panel-default "style="padding:15px;" >
+        <h1 class=" panel-heading" >@Html.DisplayFor(modelItem => item.ArticleType)</h1>
+
+        <div class="row" style="margin-left: 40px;">
+            @foreach (var subItem in item.post)
+            {
+
+
+            <div class="col-md-6 mb-5" style="margin-bottom:30px; ">
+                <h3>@Html.DisplayFor(modelItem => subItem.ArticleTitle)</h3>
+                <img src="~/Uploads/@subItem.ArticleImage" style="height:500px;width:450px;" />
+                <h3>@Html.DisplayFor(modelItem => subItem.ArticleBody)</h3>
+                <h3>@Html.DisplayFor(modelItem => subItem.EditorName)</h3>
+
+                @Html.ActionLink("Details", "Details", new { postId = subItem.id }, new { @class = "btn btn-default" })
+                @*<button class="btn btn-default">Details</button>*@
+            </div>
+                
+
+
+
+
+            }
+        </div>
+    </div>
+    }
+
+
+</div>
+

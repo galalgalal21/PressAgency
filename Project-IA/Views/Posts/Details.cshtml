@@ -1,0 +1,83 @@
+﻿@model Project_IA.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCategory.ArticleTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostCategory.ArticleTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EditorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EditorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArticleImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LikesCounter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LikesCounter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisLikesCounter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisLikesCounter)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

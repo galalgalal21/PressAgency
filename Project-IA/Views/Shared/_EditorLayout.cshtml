@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content2/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light ml-auto">
+
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right ">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+        }
+    </nav>
+
+    
+    <div class="row mt-5">
+        <div class="col-1"></div>
+
+        <div class="col-2">
+            <div class="list-group mt-5">
+                <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                    My Options
+                </button>
+                <button type="button" class="list-group-item list-group-item-action"><a href="/Manage/Index">Profile</a></button>
+                <button type="button" class="list-group-item list-group-item-action"><a href="/Posts1/Create">Create new post</a></button>
+                <button type="button" class="list-group-item list-group-item-action"><a href="/Posts1">My Posts</a></button>
+                <button type="button" class="list-group-item list-group-item-action"><a href="/Viewer/GetComent">Received questions</a></button>
+ 
+            </div>
+        </div>
+
+        <div class="col-1"></div>
+
+        <div class="col-7">
+            @RenderBody()
+        </div>
+        <div class="col-1"></div>
+    </div>
+    
+
+    
+
+    <script src="~/Scripts2/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/Scripts2/bootstrap.min.js"></script>
+</body>
+</html>

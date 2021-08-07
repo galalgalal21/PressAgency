@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Project_IA.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCategory.ArticleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleBody)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LikesCounter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisLikesCounter)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCategory.ArticleType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EditorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArticleTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArticleBody)
+        </td>
+        <td>
+            <img src="~/Uploads/@Html.DisplayFor(model=>item.ArticleImage)"
+                 class="thumbnail" style="width:48px; height:48px;" /> 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LikesCounter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisLikesCounter)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
